@@ -1,9 +1,6 @@
 import express from "express";
 import cors from "cors";
-
-// import productRouter from "./routes/productRouter.js";
-// import userRouter from "./routes/userRouter.js";
-// import orderRouter from "./routes/orderRoute.js";
+import userRouter from "./routes/userRouter.js";
 
 const app = express();
 
@@ -14,8 +11,6 @@ app.get("/", (req, res) => {
   res.send("Digidecs API running 🚀");
 });
 
-// app.use("/api/products", productRouter);
-// app.use("/api/users", userRouter);
-// app.use("/api/orders", orderRouter);
+app.use("/api/user", userRouter);
 
 export default app;
