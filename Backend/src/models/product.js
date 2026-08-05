@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+import slugify from "slugify";
 
 const productSchema = new mongoose.Schema(
   {
@@ -94,6 +95,26 @@ const productSchema = new mongoose.Schema(
     timestamps: true
   }
 );
+
+//SLUG GENERATION MIDDLEWARE 
+productSchema.pre("save", function (next) {
+  if (!this.isModified("name")) return next();
+
+  this.slug = slugify(this.name, {
+    lower: true,
+    strict: true
+  });
+
+  next();
+});
+
+productSchema.pre("findOneAndUpdate", function (next) {
+  const update = this.getUpdate();
+  if (update.name) {
+    update.slug = slugify(update.name, { lower: true, strict: true });
+  }
+  next();
+});
 
 // Compound index for AI search & filtering
 productSchema.index({
