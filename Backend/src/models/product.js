@@ -20,8 +20,9 @@ const productSchema = new mongoose.Schema(
 
     slug: {
       type: String,
-      required: true,
-      unique: true
+      unique: true,
+      lowercase: true,
+      trim: true
     },
 
     // Alternative names (AI search, typo handling, synonyms)
