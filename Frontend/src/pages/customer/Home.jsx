@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { ArrowRight, Sparkles } from "lucide-react";
 import api from "../../services/api";
 import ProductCard from "../../components/customer/ProductCard";
+import DealsOfTheDay from "../../components/customer/DealsOfTheDay";
 
 export default function Home() {
   const [products, setProducts] = useState([]);
@@ -57,6 +58,9 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Deals Of The Day Section */}
+      <DealsOfTheDay />
 
       {/* Featured Products Section */}
       <section className="py-20 bg-gray-50">

@@ -26,6 +26,19 @@ export const getProducts = async (req, res) => {
   }
 }
 
+//Get Deals Of The Day
+export const getDealsOfTheDay = async (req, res) => {
+  try {
+    const deals = await Product.find({
+      isActive: true,
+      $expr: { $gt: ["$labeledPrice", "$price"] }
+    }).populate("category").limit(10);
+    res.status(200).json(deals);
+  } catch (error) {
+    res.status(500).json({ message: "Error fetching deals", error: error.message });
+  }
+}
+
 //Get Product By ID
 export const getProductById = async(req, res) => {
   try{
