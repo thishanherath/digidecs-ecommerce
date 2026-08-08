@@ -1,1 +1,19 @@
 @import "tailwindcss";
+
+@theme {
+  --color-primary-purple: #9061F9;
+  --color-dark-purple: #130927;
+  --color-light-lilac: #E0C8FF;
+  --color-surface-purple: #2E1065;
+  --color-bg-light: #F9F5FF;
+  --color-white: #FFFFFF;
+  --color-text-dark: #130927;
+  
+  --font-sans: 'Sora', sans-serif;
+}
+
+body {
+  background-color: var(--color-bg-light);
+  color: var(--color-text-dark);
+  font-family: var(--font-sans);
+}
