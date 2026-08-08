@@ -22,8 +22,21 @@ export default function DealsOfTheDay() {
     fetchDeals();
   }, []);
 
-  if (loading || deals.length === 0) {
-    return null; // Don't show the section if it's loading or empty to avoid layout jumps
+  if (loading) {
+    return (
+      <section className="py-12 bg-white border-b border-gray-100">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between mb-8">
+            <h2 className="text-2xl md:text-3xl font-extrabold text-text-dark">Deals Of The Day</h2>
+          </div>
+          <div className="flex overflow-x-auto gap-6 pb-6">
+             {[1, 2, 3, 4].map((n) => (
+               <div key={n} className="w-[280px] h-[350px] bg-gray-100 rounded-lg animate-pulse shrink-0"></div>
+             ))}
+          </div>
+        </div>
+      </section>
+    );
   }
 
   return (
@@ -37,8 +50,13 @@ export default function DealsOfTheDay() {
         </div>
 
         {/* Carousel Container */}
-        <div className="flex overflow-x-auto gap-6 pb-6 snap-x snap-mandatory hide-scrollbar">
-          {deals.map((deal) => (
+        {deals.length === 0 ? (
+          <div className="bg-white text-gray-500 p-16 rounded-2xl text-center border border-gray-100 shadow-sm w-full">
+            <p className="text-xl">No deals available at the moment.</p>
+          </div>
+        ) : (
+          <div className="flex overflow-x-auto gap-6 pb-6 snap-x snap-mandatory hide-scrollbar">
+            {deals.map((deal) => (
             <Link key={deal._id} to={`/product/${deal.slug}`} className="group flex-none w-[280px] sm:w-[320px] snap-start flex flex-col">
               {/* Image Box */}
               <div className="relative bg-gray-100 rounded-lg aspect-[4/5] p-6 flex items-center justify-center mb-4 overflow-hidden">
@@ -70,7 +88,8 @@ export default function DealsOfTheDay() {
               </div>
             </Link>
           ))}
-        </div>
+          </div>
+        )}
 
         {/* Pagination Dots */}
         <div className="flex items-center justify-center gap-2 mt-4">
