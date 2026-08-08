@@ -67,3 +67,14 @@ export const deleteProduct = async(req, res) => {
     res.status(500).json({ message: "Error deleting product", error: error.message });
   }
 }
+
+//Get Brands
+export const getBrands = async(req, res) => {
+  try {
+    const brands = await Product.distinct("brand");
+    const validBrands = brands.filter(brand => brand != null && brand.trim() !== '');
+    res.status(200).json(validBrands);
+  } catch (error) {
+    res.status(500).json({ message: "Error fetching brands", error: error.message });
+  }
+}
