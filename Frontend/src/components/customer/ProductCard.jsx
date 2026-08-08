@@ -12,63 +12,55 @@ export default function ProductCard({ product }) {
     : 0;
 
   return (
-    <div className="group bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-xl transition-all duration-300 flex flex-col h-full hover:-translate-y-1">
+    <div className="group bg-white border border-gray-200 overflow-hidden hover:border-gray-400 transition-all duration-300 flex flex-col h-full">
       
       {/* Image Container */}
-      <Link to={`/product/${product._id}`} className="relative aspect-square overflow-hidden bg-gray-100 block">
+      <Link to={`/product/${product._id}`} className="relative aspect-square overflow-hidden bg-white block p-4">
         {discount > 0 && (
-          <div className="absolute top-3 left-3 bg-red-500 text-white text-xs font-bold px-3 py-1 rounded-full z-10">
+          <div className="absolute top-2 left-2 bg-text-dark text-white text-[10px] uppercase font-bold px-2 py-1 z-10">
             -{discount}%
           </div>
         )}
         <img 
           src={imageUrl} 
           alt={product.name} 
-          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+          className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500 mix-blend-multiply"
         />
-        {/* Quick Add Overlay */}
-        <div className="absolute inset-0 bg-black/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
       </Link>
 
       {/* Content */}
-      <div className="p-5 flex flex-col flex-1">
-        <div className="flex items-center gap-1 text-yellow-400 mb-2">
-          <Star size={14} className="fill-current" />
-          <span className="text-xs font-medium text-gray-600">{product.ratingsAverage} ({product.ratingsCount})</span>
-        </div>
-        
+      <div className="p-4 flex flex-col flex-1 border-t border-gray-100">
         <Link to={`/product/${product._id}`}>
-          <h3 className="font-bold text-gray-900 text-lg line-clamp-2 hover:text-[#0D1B2A] transition-colors duration-200">
+          <h3 className="font-semibold text-text-dark text-sm line-clamp-2 hover:text-gray-500 transition-colors duration-200">
             {product.name}
           </h3>
         </Link>
         
         <div className="mt-1 flex-1">
-          <p className="text-gray-500 text-sm line-clamp-2">{product.description}</p>
+          <p className="text-gray-500 text-xs line-clamp-1">{product.category?.name || "Premium Device"}</p>
         </div>
 
-        {/* Pricing & Action */}
-        <div className="mt-4 flex items-center justify-between pt-4 border-t border-gray-100">
-          <div>
-            <div className="font-extrabold text-xl text-[#0D1B2A]">
-              ${product.price.toFixed(2)}
-            </div>
-            {discount > 0 && (
-              <div className="text-sm text-gray-400 line-through">
-                ${product.labeledPrice.toFixed(2)}
-              </div>
-            )}
+        {/* Pricing */}
+        <div className="mt-3 flex flex-col pt-3 border-t border-gray-100">
+          <div className="font-extrabold text-lg text-text-dark tracking-tight">
+            Rs. {product.price.toLocaleString()}
           </div>
-          
-          <button 
-            className="bg-[#0D1B2A] text-white p-3 rounded-xl hover:bg-[#13293D] hover:scale-105 active:scale-95 transition-all duration-200 shadow-md hover:shadow-lg"
-            title="Add to Cart"
-          >
-            <ShoppingCart size={20} />
-          </button>
+          {discount > 0 ? (
+            <div className="text-xs text-gray-400 line-through">
+              Rs. {product.labeledPrice.toLocaleString()}
+            </div>
+          ) : (
+            <div className="text-xs text-transparent select-none">No Discount</div>
+          )}
         </div>
       </div>
       
+      {/* Action Button - Always visible, clean black border style */}
+      <div className="px-4 pb-4">
+        <button className="w-full py-2 border border-text-dark text-text-dark text-xs font-bold uppercase tracking-wider hover:bg-text-dark hover:text-white transition-colors duration-300">
+          Add To Cart
+        </button>
+      </div>
     </div>
   );
 }
