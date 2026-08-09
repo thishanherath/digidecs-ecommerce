@@ -12,12 +12,12 @@ export default function ProductCard({ product }) {
     : 0;
 
   return (
-    <div className="group bg-white border border-gray-200 overflow-hidden hover:border-gray-400 transition-all duration-300 flex flex-col h-full">
+    <div className="group bg-white border border-gray-200 overflow-hidden hover:border-primary-purple transition-all duration-300 flex flex-col h-full">
       
       {/* Image Container */}
       <Link to={`/product/${product._id}`} className="relative aspect-square overflow-hidden bg-white block p-4">
         {discount > 0 && (
-          <div className="absolute top-2 left-2 bg-text-dark text-white text-[10px] uppercase font-bold px-2 py-1 z-10">
+          <div className="absolute top-2 left-2 bg-primary-purple text-white text-[10px] uppercase font-bold px-2 py-1 z-10">
             -{discount}%
           </div>
         )}
@@ -31,7 +31,7 @@ export default function ProductCard({ product }) {
       {/* Content */}
       <div className="p-4 flex flex-col flex-1 border-t border-gray-100">
         <Link to={`/product/${product._id}`}>
-          <h3 className="font-semibold text-text-dark text-sm line-clamp-2 hover:text-gray-500 transition-colors duration-200">
+          <h3 className="font-semibold text-text-dark text-sm line-clamp-2 hover:text-primary-purple transition-colors duration-200">
             {product.name}
           </h3>
         </Link>
@@ -57,7 +57,7 @@ export default function ProductCard({ product }) {
       
       {/* Action Button - Always visible, clean black border style */}
       <div className="px-4 pb-4">
-        <button className="w-full py-2 border border-text-dark text-text-dark text-xs font-bold uppercase tracking-wider hover:bg-text-dark hover:text-white transition-colors duration-300">
+        <button className="w-full py-2 border border-primary-purple text-primary-purple text-xs font-bold uppercase tracking-wider hover:bg-primary-purple hover:text-white transition-colors duration-300">
           Add To Cart
         </button>
       </div>

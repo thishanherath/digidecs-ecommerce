@@ -57,7 +57,11 @@ export default function Navbar() {
       <div className="bg-white w-full text-text-dark border-b border-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between h-20 items-center">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-2 group">
+          <Link to="/" className="flex items-center gap-3 group">
+            <div className="flex items-center gap-1.5 -skew-x-[35deg]">
+              <div className="w-3.5 h-7 bg-gradient-to-t from-[#6D28D9] to-[#A855F7] rounded-sm translate-y-1.5 shadow-sm group-hover:scale-105 transition-transform duration-300"></div>
+              <div className="w-3.5 h-7 bg-gradient-to-t from-[#A855F7] to-[#E9D5FF] rounded-sm -translate-y-1.5 shadow-sm group-hover:scale-105 transition-transform duration-300 delay-75"></div>
+            </div>
             <div className="flex items-baseline">
               <span className="text-text-dark text-3xl font-extrabold tracking-tighter" style={{ fontFamily: 'Sora, sans-serif' }}>Degidecs.</span>
             </div>
@@ -65,11 +69,11 @@ export default function Navbar() {
 
           {/* Nav Links */}
           <div className="hidden md:flex items-center space-x-8 font-semibold text-text-dark text-sm uppercase tracking-wider">
-            <Link to="/" className="hover:text-gray-500 transition-colors">Home</Link>
-            <Link to="/shop" className="hover:text-gray-500 transition-colors">Shop</Link>
-            <Link to="/about" className="hover:text-gray-500 transition-colors">About Us</Link>
-            <Link to="/contact" className="hover:text-gray-500 transition-colors">Contact Us</Link>
-            <Link to="/pre-orders" className="hover:text-gray-500 transition-colors">Pre Orders</Link>
+            <Link to="/" className="hover:text-primary-purple transition-colors">Home</Link>
+            <Link to="/shop" className="hover:text-primary-purple transition-colors">Shop</Link>
+            <Link to="/about" className="hover:text-primary-purple transition-colors">About Us</Link>
+            <Link to="/contact" className="hover:text-primary-purple transition-colors">Contact Us</Link>
+            <Link to="/pre-orders" className="hover:text-primary-purple transition-colors">Pre Orders</Link>
           </div>
 
           {/* Right Section (Hotline & Cart) */}
@@ -84,10 +88,10 @@ export default function Navbar() {
             
             <div className="h-8 w-px bg-gray-200 hidden lg:block"></div>
             
-            <Link to="/cart" className="relative flex flex-col items-center justify-center group text-text-dark hover:text-gray-500 transition-colors">
+            <Link to="/cart" className="relative flex flex-col items-center justify-center group text-text-dark hover:text-primary-purple transition-colors">
               <div className="relative">
                 <ShoppingBag size={24} strokeWidth={1.5} />
-                <span className="absolute -top-1.5 -right-2 bg-text-dark text-white text-[9px] font-bold w-4 h-4 flex items-center justify-center rounded-full">
+                <span className="absolute -top-1.5 -right-2 bg-primary-purple text-white text-[9px] font-bold w-4 h-4 flex items-center justify-center rounded-full">
                   0
                 </span>
               </div>
@@ -111,7 +115,7 @@ export default function Navbar() {
             <div className="absolute top-full left-0 w-full bg-white border border-gray-200 shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
               {brands.length > 0 ? (
                 brands.map(brand => (
-                  <div key={brand} className="px-4 py-3 text-sm text-text-dark hover:bg-gray-50 hover:font-bold border-b border-gray-100 last:border-0 cursor-pointer">
+                  <div key={brand} className="px-4 py-3 text-sm text-text-dark hover:bg-bg-light hover:text-primary-purple hover:font-bold border-b border-gray-100 last:border-0 cursor-pointer">
                     {brand}
                   </div>
                 ))
@@ -122,8 +126,8 @@ export default function Navbar() {
           </div>
           
           {/* Search Bar */}
-          <div className="flex-1 max-w-3xl flex items-center h-10 border border-green-600 rounded-sm overflow-hidden bg-white focus-within:ring-1 focus-within:ring-green-600">
-            <select className="bg-white h-full px-4 text-xs font-medium text-text-dark/70 border-r border-gray-200 outline-none w-48 cursor-pointer">
+          <div className="flex-1 max-w-3xl flex items-center h-10 border border-primary-purple rounded-sm overflow-hidden bg-white focus-within:ring-1 focus-within:ring-primary-purple">
+            <select className="bg-white h-full px-4 text-xs font-medium text-text-dark/70 border-r border-gray-200 outline-none w-48 cursor-pointer hover:bg-gray-50 transition-colors">
               <option value="">All Categories</option>
               {categories.map(c => (
                 <option key={c._id} value={c._id}>{c.name}</option>
@@ -134,14 +138,14 @@ export default function Navbar() {
               placeholder="Looking for Something Intersting..." 
               className="flex-1 h-full px-4 outline-none text-sm text-text-dark" 
             />
-            <button className="h-full px-4 bg-white text-text-dark hover:text-green-600 transition-colors flex items-center justify-center">
+            <button className="h-full px-4 bg-white text-text-dark hover:text-primary-purple transition-colors flex items-center justify-center">
               <Search size={18} strokeWidth={1.5} />
             </button>
           </div>
 
           {/* Special Offers */}
           <div className="flex items-center pr-2">
-            <Link to="/special-offers" className="flex items-center gap-2 font-bold text-text-dark hover:text-green-600 text-sm transition-colors">
+            <Link to="/special-offers" className="flex items-center gap-2 font-bold text-text-dark hover:text-primary-purple text-sm transition-colors">
               <Tag size={18} className="text-text-dark/70" strokeWidth={1.5} style={{ transform: 'scaleX(-1)' }} />
               Special Offers
             </Link>

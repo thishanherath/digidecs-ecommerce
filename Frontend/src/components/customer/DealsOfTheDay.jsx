@@ -57,7 +57,7 @@ export default function DealsOfTheDay() {
         ) : (
           <div className="flex overflow-x-auto gap-4 pb-6 snap-x snap-mandatory hide-scrollbar">
             {deals.map((deal) => (
-            <Link key={deal._id} to={`/product/${deal.slug}`} className="group flex-none w-[280px] sm:w-[320px] snap-start flex flex-col border border-gray-200 hover:border-text-dark transition-colors duration-300">
+            <Link key={deal._id} to={`/product/${deal.slug}`} className="group flex-none w-[280px] sm:w-[320px] snap-start flex flex-col border border-gray-200 hover:border-primary-purple transition-colors duration-300">
               {/* Image Box */}
               <div className="relative bg-white aspect-[4/5] p-6 flex items-center justify-center border-b border-gray-100 overflow-hidden">
                 <img 
@@ -66,7 +66,7 @@ export default function DealsOfTheDay() {
                   className="object-contain w-full h-full mix-blend-multiply group-hover:scale-105 transition-transform duration-500"
                 />
                 {/* Deal Badge (Hexagon/Zap) */}
-                <div className="absolute top-4 left-4 bg-text-dark text-white text-[10px] uppercase font-bold px-2 py-1 flex items-center gap-1">
+                <div className="absolute top-4 left-4 bg-primary-purple text-white text-[10px] uppercase font-bold px-2 py-1 flex items-center gap-1">
                   <Zap size={10} fill="currentColor" />
                   SALE
                 </div>
@@ -77,7 +77,7 @@ export default function DealsOfTheDay() {
                 <span className="text-gray-400 text-[10px] font-bold uppercase tracking-wider mb-1">
                   {deal.brand || 'PREMIUM'}
                 </span>
-                <h3 className="text-text-dark font-semibold text-sm leading-snug mb-2 line-clamp-2">
+                <h3 className="text-text-dark group-hover:text-primary-purple font-semibold text-sm leading-snug mb-2 line-clamp-2 transition-colors">
                   {deal.name}
                 </h3>
                 <div className="flex flex-col items-center gap-1 mt-auto">
@@ -94,9 +94,9 @@ export default function DealsOfTheDay() {
 
         {/* Pagination Dots */}
         <div className="flex items-center justify-center gap-2 mt-4">
-          <div className="w-6 h-1.5 bg-text-dark"></div>
+          <div className="w-6 h-1.5 bg-primary-purple"></div>
           {[...Array(5)].map((_, i) => (
-            <div key={i} className="w-1.5 h-1.5 bg-gray-200 cursor-pointer hover:bg-gray-400 transition-colors"></div>
+            <div key={i} className="w-1.5 h-1.5 bg-gray-200 cursor-pointer hover:bg-primary-purple/50 transition-colors"></div>
           ))}
         </div>
       </div>

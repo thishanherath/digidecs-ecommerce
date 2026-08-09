@@ -4,9 +4,8 @@ import ProductCard from "../../components/customer/ProductCard";
 import DealsOfTheDay from "../../components/customer/DealsOfTheDay";
 
 const heroImages = [
-  { url: 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?q=80&w=800&auto=format&fit=crop', alt: 'Smartphones', title: 'Latest Smartphones' },
-  { url: 'https://images.unsplash.com/photo-1606813907291-d86efa9b94db?q=80&w=800&auto=format&fit=crop', alt: 'Gaming', title: 'Next-Gen Gaming' },
-  { url: 'https://images.unsplash.com/photo-1505156868547-9b49f4df4e04?q=80&w=800&auto=format&fit=crop', alt: 'Smart Watches', title: 'Smart Accessories' }
+  { url: '/images/samsung.png', alt: 'Samsung Galaxy Deals', title: '' },
+  { url: '/images/sony.png', alt: 'Sony Audio Deals', title: '' }
 ];
 
 export default function Home() {

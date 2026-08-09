@@ -1,14 +1,14 @@
 @import "tailwindcss";
 
 @theme {
-  --color-primary-purple: #000000; /* Replaced with black/dark for primary actions */
-  --color-dark-purple: #111111; /* Sleek near-black */
-  --color-light-lilac: #F3F4F6; /* Gray-100 for subtle backgrounds */
-  --color-surface-purple: #1F2937; /* Gray-800 */
-  --color-bg-light: #FFFFFF; /* Pure white background */
+  --color-primary-purple: #9061F9;
+  --color-dark-purple: #130927;
+  --color-light-lilac: #E0C8FF;
+  --color-surface-purple: #2E1065;
+  --color-bg-light: #F9F5FF;
   --color-white: #FFFFFF;
-  --color-text-dark: #111111; /* Near black text */
-  --color-border-gray: #E5E7EB; /* Clean thin border */
+  --color-text-dark: #130927;
+  --color-border-gray: #E5E7EB;
   
   --font-sans: 'Sora', sans-serif;
 }
