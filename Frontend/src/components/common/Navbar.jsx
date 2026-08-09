@@ -1,11 +1,13 @@
 import { useState, useEffect, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
+import { ModalContext } from "../../context/ModalContext";
 import { Search, User, Phone, ShoppingBag, Menu, ChevronDown, Tag } from "lucide-react";
 import api from "../../services/api";
 
 export default function Navbar() {
   const { user, logout } = useContext(AuthContext);
+  const { openLoginModal } = useContext(ModalContext);
   const navigate = useNavigate();
   const [categories, setCategories] = useState([]);
   const [brands, setBrands] = useState([]);
@@ -45,9 +47,9 @@ export default function Navbar() {
                 <button onClick={handleLogout} className="hover:text-red-600 transition-colors">Logout</button>
               </div>
             ) : (
-              <Link to="/login" className="flex items-center gap-1.5 hover:text-text-dark transition-colors">
+              <button onClick={openLoginModal} className="flex items-center gap-1.5 hover:text-text-dark transition-colors uppercase tracking-wider font-semibold">
                 <User size={12} strokeWidth={2} /> Sign In / Register
-              </Link>
+              </button>
             )}
           </div>
         </div>

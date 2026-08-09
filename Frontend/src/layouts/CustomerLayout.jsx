@@ -1,10 +1,12 @@
 import { Outlet } from "react-router-dom";
 import Navbar from "../components/common/Navbar";
+import AuthModal from "../components/common/AuthModal";
 
 export default function CustomerLayout() {
   return (
     <div className="min-h-screen bg-bg-light text-text-dark flex flex-col font-sans">
       <Navbar />
+      <AuthModal />
       
       {/* Main Content Area */}
       <main className="flex-grow">
